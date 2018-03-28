@@ -28,7 +28,9 @@ lane :beta do
   )
 
   # upload to Testflight
-  pilot(skip_waiting_for_build_processing: true)
+  pilot(skip_waiting_for_build_processing: true,
+        email:"kamlesh@crowdbotics.com",
+        distribute_external: false)
 
   # slack(
   #   slack_url: "https://hooks.slack.com/services/IDS"
@@ -53,7 +55,9 @@ end
 
 # Upload to App Store
 lane :upload do
-  deliver
+  deliver(
+     force: true # Set to true to skip PDF verification
+  )
 end
 
 # Upload to App Store
